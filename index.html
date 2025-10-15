@@ -125,6 +125,12 @@
             border-top: 1px solid #e2e8f0;
         }
         
+        .justification::before {
+            content: "💡 Pourquoi ? ";
+            font-weight: 600;
+            color: #667eea;
+        }
+        
         .stats-box {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -266,7 +272,27 @@
                         <strong>Audit ISO 13485</strong> (norme qualité dispositifs médicaux : vérification système qualité, traçabilité, gestion risques) + visite site + vérification références clients avant tout changement de fournisseur
                     </div>
                     <div class="justification">
-                        <strong>Justification:</strong> Composant critique = validation exhaustive obligatoire. Réduction coûts ne doit jamais primer sur sécurité.
+                        Composant critique = validation exhaustive obligatoire. Réduction coûts ne doit jamais primer sur sécurité.
+                    </div>
+                </div>
+                
+                <div class="point-card">
+                    <div class="point-title">2. Plan de Gestion de Crise (PGC) préétabli</div>
+                    <div class="point-content">
+                        Scénarios de crise prédéfinis + seuils d'activation cellule de crise + procédures détaillées + matrice <strong>RACI</strong> (Responsable, Accountable, Consulté, Informé) + membres de réserve identifiés
+                    </div>
+                    <div class="justification">
+                        Évite improvisation en urgence. Réaction structurée immédiate. Pas de temps perdu à déterminer "qui fait quoi". Membres de réserve anticipent arrêts maladie/congés.
+                    </div>
+                </div>
+                
+                <div class="point-card">
+                    <div class="point-title">3. Disaster Recovery Plan (DRP)</div>
+                    <div class="point-content">
+                        Plan de continuité : site secondaire crise + systèmes communication secours + ressources backup + documentation accessible hors ligne
+                    </div>
+                    <div class="justification">
+                        Assure continuité opérationnelle même pendant crise. Lieu défini pour gestion de crise (siège ou site secondaire).
                     </div>
                 </div>
                 
@@ -276,7 +302,7 @@
                         Tests de fiabilité + validation clinique + phase pilote 50-100 unités avant production masse
                     </div>
                     <div class="justification">
-                        <strong>Justification:</strong> Nouveau fournisseur = nouveau composant même si fonction identique. Détecte défauts avant implantation patients.
+                        Nouveau fournisseur = nouveau composant même si fonction identique. Détecte défauts avant implantation patients.
                     </div>
                 </div>
                 
@@ -286,7 +312,7 @@
                         Surveillance <strong>FDA</strong> (autorité sanitaire US) / <strong>ANSM</strong> (autorité sanitaire France) + alertes défaillances dispositifs similaires + réseaux professionnels
                     </div>
                     <div class="justification">
-                        <strong>Justification:</strong> L'incident concurrent aurait dû déclencher alerte immédiate. Permet réaction proactive.
+                        L'incident concurrent aurait dû déclencher alerte immédiate. Permet réaction proactive.
                     </div>
                 </div>
                 
@@ -296,7 +322,7 @@
                         Base données patient-dispositif-composant + numéros lot par circuit intégré
                     </div>
                     <div class="justification">
-                        <strong>Justification:</strong> Permet rappel ciblé rapide si défaut identifié. Obligation réglementaire ISO 13485.
+                        Permet rappel ciblé rapide si défaut identifié. Obligation réglementaire ISO 13485.
                     </div>
                 </div>
             </div>
@@ -310,42 +336,42 @@
             </div>
             <div class="slide-content">
                 <div class="point-card">
-                    <div class="point-title">1. Cellule de crise + évaluation risque</div>
+                    <div class="point-title">1. Activation cellule de crise + investigation</div>
                     <div class="point-content">
-                        <strong>DG</strong> (Direction Générale) + Qualité + Réglementaire + Juridique + Communication. Tests urgents circuits pour confirmer défaut. Réunions toutes les 4h.
+                        <strong>Activation selon PGC</strong> (niveau gravité atteint). <strong>Lieu:</strong> siège ou site secondaire défini. <strong>Cellule:</strong> Directeur de crise (DG) + Coordinateur + Responsable comm' + Responsable opérations + membres réserve si nécessaire. <strong>Investigation:</strong> Tests circuits + analyse utilisation (défaut fabricant VS mauvaise utilisation). Réunions 4h, échanges structurés et concis.
                     </div>
                     <div class="justification">
-                        <strong>Justification:</strong> Coordination essentielle décisions rapides. Tests déterminent si rappel total nécessaire.
+                        PGC évite improvisation. Identifier vraie cause avant décision rappel (coûteuse). Rôles précis + gestion temps cruciale = décisions rapides et éclairées.
                     </div>
                 </div>
                 
                 <div class="point-card">
-                    <div class="point-title">2. Notifications obligatoires (48h)</div>
+                    <div class="point-title">2. Décision rappel : analyse alternatives</div>
                     <div class="point-content">
-                        <strong>ANSM</strong> (autorité sanitaire France) / <strong>FDA</strong> (autorité sanitaire US) + lettre urgente cardiologues + liste 1000 dispositifs concernés + hotline médicale 24/7
+                        <strong>Option 1:</strong> Surveillance renforcée seule (si risque faible/incertain). <strong>Option 2:</strong> Rappel partiel (lots spécifiques défectueux). <strong>Option 3:</strong> Rappel total (défaut systémique confirmé). Décision basée sur: gravité défaut + probabilité défaillance + risque chirurgical remplacement.
                     </div>
                     <div class="justification">
-                        <strong>Justification:</strong> Obligation légale matériovigilance. Permet médecins surveiller patients immédiatement.
+                        Rappel = intervention chirurgicale avec risques propres (infection, complications). Si défaut mineur ou rare, surveillance peut être plus sûre que chirurgie. Analyse coût/bénéfice sécurité patient primordiale.
                     </div>
                 </div>
                 
                 <div class="point-card">
-                    <div class="point-title">3. Surveillance patients renforcée</div>
+                    <div class="point-title">3. Notifications obligatoires + surveillance</div>
                     <div class="point-content">
-                        Consultation cardiologique urgente 1000 patients + <strong>ECG</strong> (électrocardiogramme) + vérification dispositif + surveillance hebdomadaire
+                        <strong>ANSM</strong> (autorité sanitaire France) / <strong>FDA</strong> (autorité sanitaire US) sous 48h + lettre urgente cardiologues + consultation urgente 1000 patients + <strong>ECG</strong> (électrocardiogramme) + vérification dispositif + hotline médicale 24/7
                     </div>
                     <div class="justification">
-                        <strong>Justification:</strong> Détecte dysfonctionnements précoces. Évite décès en attendant remplacement.
+                        Obligation légale matériovigilance. Surveillance immédiate détecte dysfonctionnements précoces pendant investigation. Évite décès même si décision rappel pas encore prise.
                     </div>
                 </div>
                 
                 <div class="point-card">
-                    <div class="point-title">4. Communication transparente</div>
+                    <div class="point-title">4. Communication transparente (interne + externe)</div>
                     <div class="point-content">
-                        Lettre <strong>AR</strong> (recommandée avec accusé réception) patients + appel suivi + site web <strong>FAQ</strong> (questions fréquentes) + numéro vert. Message: "Sécurité = priorité absolue"
+                        <strong>Externe:</strong> Lettre <strong>AR</strong> (accusé réception) patients + appel suivi + site <strong>FAQ</strong> (questions fréquentes) + numéro vert. <strong>Interne:</strong> Briefings réguliers employés sur situation/mesures + transparence pour éviter panique + implication de tous
                     </div>
                     <div class="justification">
-                        <strong>Justification:</strong> Transparence préserve confiance. Dissimulation = catastrophe réputationnelle et juridique.
+                        Transparence externe préserve confiance. Communication interne souvent oubliée mais essentielle : employés informés = pas de rumeurs/panique, meilleure coordination.
                     </div>
                 </div>
             </div>
@@ -364,7 +390,7 @@
                         Activation assurance responsabilité produit + provision 20-30M€ (remplacements) + action juridique contre fournisseur défaillant
                     </div>
                     <div class="justification">
-                        <strong>Justification:</strong> Limite impact trésorerie. Récupère coûts auprès fournisseur responsable du défaut.
+                        Limite impact trésorerie. Récupère coûts auprès fournisseur responsable du défaut.
                     </div>
                 </div>
                 
@@ -374,7 +400,7 @@
                         Remplacement chirurgical 1000 dispositifs. Priorisation patients à haut risque. 100% remplacements sous 90 jours. Prise en charge totale.
                     </div>
                     <div class="justification">
-                        <strong>Justification:</strong> Seule solution garantir sécurité patients. Priorisation optimise ressources médicales.
+                        Seule solution garantir sécurité patients. Priorisation optimise ressources médicales.
                     </div>
                 </div>
                 
@@ -384,7 +410,7 @@
                         Transparence médias + audit externe indépendant + publication améliorations + renforcement certification qualité
                     </div>
                     <div class="justification">
-                        <strong>Justification:</strong> Réaction proactive montre responsabilité. Audit indépendant restaure confiance long terme.
+                        Réaction proactive montre responsabilité. Audit indépendant restaure confiance long terme.
                     </div>
                 </div>
                 
@@ -394,7 +420,7 @@
                         Retour expérience complet + mise à jour procédures qualification fournisseurs + formation équipes + documentation exhaustive (10 ans)
                     </div>
                     <div class="justification">
-                        <strong>Justification:</strong> Évite répétition crise. Conformité réglementaire ISO 13485. Leçon: jamais sacrifier qualité pour coûts.
+                        Évite répétition crise. Conformité réglementaire ISO 13485. Leçon: jamais sacrifier qualité pour coûts.
                     </div>
                 </div>
             </div>
