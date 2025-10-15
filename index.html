@@ -14,6 +14,7 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
             overflow: hidden;
         }
         
@@ -23,20 +24,20 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
+            padding-bottom: 100px;
         }
         
         .slide {
             width: 90%;
-            max-width: 1200px;
-            height: 85vh;
+            max-width: 1100px;
+            max-height: calc(100vh - 150px);
             background: white;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            padding: 60px;
+            padding: 50px;
             display: none;
             flex-direction: column;
-            position: relative;
+            overflow: hidden;
         }
         
         .slide.active {
@@ -58,58 +59,79 @@
         .slide-header {
             border-bottom: 4px solid #667eea;
             padding-bottom: 20px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            flex-shrink: 0;
         }
         
         .slide-title {
-            font-size: 48px;
+            font-size: 42px;
             color: #2d3748;
             font-weight: 700;
         }
         
         .slide-subtitle {
-            font-size: 22px;
+            font-size: 20px;
             color: #718096;
-            margin-top: 10px;
+            margin-top: 8px;
+        }
+        
+        .slide-content {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        
+        .slide-content::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .slide-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .slide-content::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
         }
         
         .point-card {
             background: #f7fafc;
             border-left: 5px solid #667eea;
-            padding: 25px;
-            margin-bottom: 25px;
+            padding: 20px;
+            margin-bottom: 20px;
             border-radius: 10px;
         }
         
         .point-title {
-            font-size: 24px;
+            font-size: 22px;
             color: #667eea;
             font-weight: 700;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
         
         .point-content {
-            font-size: 18px;
+            font-size: 16px;
             color: #4a5568;
-            line-height: 1.6;
+            line-height: 1.5;
         }
         
         .justification {
-            font-size: 16px;
+            font-size: 15px;
             color: #718096;
             font-style: italic;
-            margin-top: 10px;
-            padding-top: 10px;
+            margin-top: 8px;
+            padding-top: 8px;
             border-top: 1px solid #e2e8f0;
         }
         
         .stats-box {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            padding: 40px;
+            padding: 30px;
             border-radius: 15px;
             text-align: center;
-            margin: 30px 0;
+            margin: 20px 0;
         }
         
         .stat-row {
@@ -123,19 +145,39 @@
         }
         
         .stat-number {
-            font-size: 42px;
+            font-size: 38px;
             font-weight: 700;
         }
         
         .stat-label {
-            font-size: 14px;
+            font-size: 13px;
             opacity: 0.9;
             margin-top: 5px;
         }
         
+        .alert-box {
+            background: #fff5f5;
+            border-left: 5px solid #f56565;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        
+        .alert-title {
+            font-size: 22px;
+            color: #c53030;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        
+        .alert-text {
+            font-size: 16px;
+            color: #4a5568;
+        }
+        
         .navigation {
             position: fixed;
-            bottom: 40px;
+            bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
@@ -145,6 +187,7 @@
             padding: 15px 30px;
             border-radius: 50px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            z-index: 1000;
         }
         
         .nav-btn {
@@ -179,175 +222,180 @@
 </head>
 <body>
     <div class="presentation-container">
-        <!-- Slide 1: Titre -->
-        <div class="slide active" data-slide="1">
+        <!-- Slide 1 -->
+        <div class="slide active">
             <div class="slide-header">
                 <div class="slide-title">Crise Pacemakers Défectueux</div>
                 <div class="slide-subtitle">Plan d'Action Stratégique</div>
             </div>
-            <div class="stats-box">
-                <h2 style="font-size: 28px; margin-bottom: 20px;">Situation Critique</h2>
-                <div class="stat-row">
-                    <div class="stat-item">
-                        <div class="stat-number">1000</div>
-                        <div class="stat-label">Patients à risque</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">24-48h</div>
-                        <div class="stat-label">Délai notification</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">25-40M€</div>
-                        <div class="stat-label">Impact estimé</div>
+            <div class="slide-content">
+                <div class="stats-box">
+                    <h2 style="font-size: 26px; margin-bottom: 15px;">Situation Critique</h2>
+                    <div class="stat-row">
+                        <div class="stat-item">
+                            <div class="stat-number">1000</div>
+                            <div class="stat-label">Patients à risque</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">24-48h</div>
+                            <div class="stat-label">Délai notification</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">25-40M€</div>
+                            <div class="stat-label">Impact estimé</div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div style="background: #fff5f5; border-left: 5px solid #f56565; padding: 25px; border-radius: 10px; margin-top: 30px;">
-                <div style="font-size: 24px; color: #c53030; font-weight: 700; margin-bottom: 10px;">⚠️ Défaut circuits intégrés</div>
-                <div style="font-size: 18px; color: #4a5568;">Même sous-traitant que concurrent (50 crises cardiaques). Circuits déjà implantés dans 1000 pacemakers.</div>
+                <div class="alert-box">
+                    <div class="alert-title">⚠️ Défaut circuits intégrés</div>
+                    <div class="alert-text">Même sous-traitant que concurrent (50 crises cardiaques). Circuits déjà implantés dans 1000 pacemakers.</div>
+                </div>
             </div>
         </div>
 
-        <!-- Slide 2: Mesures Préventives -->
-        <div class="slide" data-slide="2">
+        <!-- Slide 2 -->
+        <div class="slide">
             <div class="slide-header">
                 <div class="slide-title">Mesures Préventives</div>
                 <div class="slide-subtitle">Ce qui aurait dû être fait</div>
             </div>
-            
-            <div class="point-card">
-                <div class="point-title">1. Qualification fournisseur rigoureuse</div>
-                <div class="point-content">
-                    Audit ISO 13485 + visite site + vérification références clients avant tout changement de fournisseur
+            <div class="slide-content">
+                <div class="point-card">
+                    <div class="point-title">1. Qualification fournisseur rigoureuse</div>
+                    <div class="point-content">
+                        Audit ISO 13485 + visite site + vérification références clients avant tout changement de fournisseur
+                    </div>
+                    <div class="justification">
+                        <strong>Justification:</strong> Composant critique = validation exhaustive obligatoire. Réduction coûts ne doit jamais primer sur sécurité.
+                    </div>
                 </div>
-                <div class="justification">
-                    <strong>Justification:</strong> Composant critique = validation exhaustive obligatoire. Réduction coûts ne doit jamais primer sur sécurité.
+                
+                <div class="point-card">
+                    <div class="point-title">2. Validation technique complète</div>
+                    <div class="point-content">
+                        Tests de fiabilité + validation clinique + phase pilote 50-100 unités avant production masse
+                    </div>
+                    <div class="justification">
+                        <strong>Justification:</strong> Nouveau fournisseur = nouveau composant même si fonction identique. Détecte défauts avant implantation patients.
+                    </div>
                 </div>
-            </div>
-            
-            <div class="point-card">
-                <div class="point-title">2. Validation technique complète</div>
-                <div class="point-content">
-                    Tests de fiabilité + validation clinique + phase pilote 50-100 unités avant production masse
+                
+                <div class="point-card">
+                    <div class="point-title">3. Veille sectorielle active</div>
+                    <div class="point-content">
+                        Surveillance FDA MAUDE/ANSM + alertes défaillances dispositifs similaires + réseaux professionnels
+                    </div>
+                    <div class="justification">
+                        <strong>Justification:</strong> L'incident concurrent aurait dû déclencher alerte immédiate. Permet réaction proactive.
+                    </div>
                 </div>
-                <div class="justification">
-                    <strong>Justification:</strong> Nouveau fournisseur = nouveau composant même si fonction identique. Détecte défauts avant implantation patients.
-                </div>
-            </div>
-            
-            <div class="point-card">
-                <div class="point-title">3. Veille sectorielle active</div>
-                <div class="point-content">
-                    Surveillance FDA MAUDE/ANSM + alertes défaillances dispositifs similaires + réseaux professionnels
-                </div>
-                <div class="justification">
-                    <strong>Justification:</strong> L'incident concurrent aurait dû déclencher alerte immédiate. Permet réaction proactive.
-                </div>
-            </div>
-            
-            <div class="point-card">
-                <div class="point-title">4. Traçabilité exhaustive</div>
-                <div class="point-content">
-                    Base données patient-dispositif-composant + numéros lot par circuit intégré
-                </div>
-                <div class="justification">
-                    <strong>Justification:</strong> Permet rappel ciblé rapide si défaut identifié. Obligation réglementaire ISO 13485.
+                
+                <div class="point-card">
+                    <div class="point-title">4. Traçabilité exhaustive</div>
+                    <div class="point-content">
+                        Base données patient-dispositif-composant + numéros lot par circuit intégré
+                    </div>
+                    <div class="justification">
+                        <strong>Justification:</strong> Permet rappel ciblé rapide si défaut identifié. Obligation réglementaire ISO 13485.
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 3: Actions Immédiates -->
-        <div class="slide" data-slide="3">
+        <!-- Slide 3 -->
+        <div class="slide">
             <div class="slide-header">
                 <div class="slide-title">Actions Immédiates (J1-J7)</div>
                 <div class="slide-subtitle">Gestion de crise</div>
             </div>
-            
-            <div class="point-card">
-                <div class="point-title">1. Cellule de crise + évaluation risque</div>
-                <div class="point-content">
-                    DG + Qualité + Réglementaire + Juridique + Communication. Tests urgents circuits pour confirmer défaut. Réunions toutes les 4h.
+            <div class="slide-content">
+                <div class="point-card">
+                    <div class="point-title">1. Cellule de crise + évaluation risque</div>
+                    <div class="point-content">
+                        DG + Qualité + Réglementaire + Juridique + Communication. Tests urgents circuits pour confirmer défaut. Réunions toutes les 4h.
+                    </div>
+                    <div class="justification">
+                        <strong>Justification:</strong> Coordination essentielle décisions rapides. Tests déterminent si rappel total nécessaire.
+                    </div>
                 </div>
-                <div class="justification">
-                    <strong>Justification:</strong> Coordination essentielle décisions rapides. Tests déterminent si rappel total nécessaire.
+                
+                <div class="point-card">
+                    <div class="point-title">2. Notifications obligatoires (48h)</div>
+                    <div class="point-content">
+                        ANSM/FDA + lettre urgente cardiologues + liste 1000 dispositifs concernés + hotline médicale 24/7
+                    </div>
+                    <div class="justification">
+                        <strong>Justification:</strong> Obligation légale matériovigilance. Permet médecins surveiller patients immédiatement.
+                    </div>
                 </div>
-            </div>
-            
-            <div class="point-card">
-                <div class="point-title">2. Notifications obligatoires (48h)</div>
-                <div class="point-content">
-                    ANSM/FDA + lettre urgente cardiologues + liste 1000 dispositifs concernés + hotline médicale 24/7
+                
+                <div class="point-card">
+                    <div class="point-title">3. Surveillance patients renforcée</div>
+                    <div class="point-content">
+                        Consultation cardiologique urgente 1000 patients + ECG + vérification dispositif + surveillance hebdomadaire
+                    </div>
+                    <div class="justification">
+                        <strong>Justification:</strong> Détecte dysfonctionnements précoces. Évite décès en attendant remplacement.
+                    </div>
                 </div>
-                <div class="justification">
-                    <strong>Justification:</strong> Obligation légale matériovigilance. Permet médecins surveiller patients immédiatement.
-                </div>
-            </div>
-            
-            <div class="point-card">
-                <div class="point-title">3. Surveillance patients renforcée</div>
-                <div class="point-content">
-                    Consultation cardiologique urgente 1000 patients + ECG + vérification dispositif + surveillance hebdomadaire
-                </div>
-                <div class="justification">
-                    <strong>Justification:</strong> Détecte dysfonctionnements précoces. Évite décès en attendant remplacement.
-                </div>
-            </div>
-            
-            <div class="point-card">
-                <div class="point-title">4. Communication transparente</div>
-                <div class="point-content">
-                    Lettre AR patients + appel suivi + site web FAQ + numéro vert. Message: "Sécurité = priorité absolue"
-                </div>
-                <div class="justification">
-                    <strong>Justification:</strong> Transparence préserve confiance. Dissimulation = catastrophe réputationnelle et juridique.
+                
+                <div class="point-card">
+                    <div class="point-title">4. Communication transparente</div>
+                    <div class="point-content">
+                        Lettre AR patients + appel suivi + site web FAQ + numéro vert. Message: "Sécurité = priorité absolue"
+                    </div>
+                    <div class="justification">
+                        <strong>Justification:</strong> Transparence préserve confiance. Dissimulation = catastrophe réputationnelle et juridique.
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- Slide 4: Gestion Impact -->
-        <div class="slide" data-slide="4">
+        <!-- Slide 4 -->
+        <div class="slide">
             <div class="slide-header">
                 <div class="slide-title">Gestion Impact</div>
                 <div class="slide-subtitle">Protection financière & réputation</div>
             </div>
-            
-            <div class="point-card">
-                <div class="point-title">1. Protection financière</div>
-                <div class="point-content">
-                    Activation assurance responsabilité produit + provision 20-30M€ (remplacements) + action juridique contre fournisseur défaillant
+            <div class="slide-content">
+                <div class="point-card">
+                    <div class="point-title">1. Protection financière</div>
+                    <div class="point-content">
+                        Activation assurance responsabilité produit + provision 20-30M€ (remplacements) + action juridique contre fournisseur défaillant
+                    </div>
+                    <div class="justification">
+                        <strong>Justification:</strong> Limite impact trésorerie. Récupère coûts auprès fournisseur responsable du défaut.
+                    </div>
                 </div>
-                <div class="justification">
-                    <strong>Justification:</strong> Limite impact trésorerie. Récupère coûts auprès fournisseur responsable du défaut.
+                
+                <div class="point-card">
+                    <div class="point-title">2. Rappel et remplacement</div>
+                    <div class="point-content">
+                        Remplacement chirurgical 1000 dispositifs. Priorisation patients à haut risque. 100% remplacements sous 90 jours. Prise en charge totale.
+                    </div>
+                    <div class="justification">
+                        <strong>Justification:</strong> Seule solution garantir sécurité patients. Priorisation optimise ressources médicales.
+                    </div>
                 </div>
-            </div>
-            
-            <div class="point-card">
-                <div class="point-title">2. Rappel et remplacement</div>
-                <div class="point-content">
-                    Remplacement chirurgical 1000 dispositifs. Priorisation patients à haut risque. 100% remplacements sous 90 jours. Prise en charge totale.
+                
+                <div class="point-card">
+                    <div class="point-title">3. Protection réputation</div>
+                    <div class="point-content">
+                        Transparence médias + audit externe indépendant + publication améliorations + renforcement certification qualité
+                    </div>
+                    <div class="justification">
+                        <strong>Justification:</strong> Réaction proactive montre responsabilité. Audit indépendant restaure confiance long terme.
+                    </div>
                 </div>
-                <div class="justification">
-                    <strong>Justification:</strong> Seule solution garantir sécurité patients. Priorisation optimise ressources médicales.
-                </div>
-            </div>
-            
-            <div class="point-card">
-                <div class="point-title">3. Protection réputation</div>
-                <div class="point-content">
-                    Transparence médias + audit externe indépendant + publication améliorations + renforcement certification qualité
-                </div>
-                <div class="justification">
-                    <strong>Justification:</strong> Réaction proactive montre responsabilité. Audit indépendant restaure confiance long terme.
-                </div>
-            </div>
-            
-            <div class="point-card">
-                <div class="point-title">4. Amélioration continue</div>
-                <div class="point-content">
-                    Retour expérience complet + mise à jour procédures qualification fournisseurs + formation équipes + documentation exhaustive (10 ans)
-                </div>
-                <div class="justification">
-                    <strong>Justification:</strong> Évite répétition crise. Conformité réglementaire ISO 13485. Leçon: jamais sacrifier qualité pour coûts.
+                
+                <div class="point-card">
+                    <div class="point-title">4. Amélioration continue</div>
+                    <div class="point-content">
+                        Retour expérience complet + mise à jour procédures qualification fournisseurs + formation équipes + documentation exhaustive (10 ans)
+                    </div>
+                    <div class="justification">
+                        <strong>Justification:</strong> Évite répétition crise. Conformité réglementaire ISO 13485. Leçon: jamais sacrifier qualité pour coûts.
+                    </div>
                 </div>
             </div>
         </div>
